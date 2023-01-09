@@ -1,6 +1,4 @@
 package com.booking.api.test;
-
-
 import com.booking.CreateBooking;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -14,6 +12,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import static com.constants.Endpoints.BASE_URI;
+import static com.constants.Endpoints.BOOKING_ENDPOINT;
 
 public class createBookingTest {
 
@@ -24,9 +23,12 @@ public class createBookingTest {
     @Test
     @Parameters({"scenarioName"})
     public void createBooking(@Optional("createBooking") String scenarioName) throws IOException {
-        payload = (Map<String, Object>) booking.buildPayload(scenarioName);
-        Response response = booking.performPost(BASE_URI +"/booking",payload);
+        payload = booking.buildPayload(scenarioName);
+        // Make a POST request to Booking endpoint to place new booking
+        Response response = booking.performPost(BASE_URI +BOOKING_ENDPOINT,payload);
+        // Check that status code is correct
         Assert.assertEquals(response.getStatusCode(),200,"Expected 200");
+        // Get id of new booking
         JsonPath jsonPathEvaluator = response.jsonPath();
         bookingId = jsonPathEvaluator.get("bookingid");
     }
@@ -34,8 +36,11 @@ public class createBookingTest {
     @AfterTest
     public void getBookingByID()
     {
-        Response response =booking.performGet(BASE_URI +"/booking/"+bookingId.toString());
+        // Get booking by ID
+        Response response = booking.performGet(BASE_URI + BOOKING_ENDPOINT+bookingId.toString());
+        // Check status code is correct
         Assert.assertEquals(response.getStatusCode(),200,"Expected 200");
+        // To check that firstname field is as expected
         JsonPath jsonPathEvaluator = response.jsonPath();
         Assert.assertEquals(jsonPathEvaluator.get("firstname"),payload.get("firstname"),"Firstname is same as expected");
     }

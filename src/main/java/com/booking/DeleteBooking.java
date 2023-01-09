@@ -1,11 +1,11 @@
 package com.booking;
 
-import java.util.Map;
-
 import com.constants.Token;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+
+import java.util.Map;
 public class DeleteBooking extends CreateBooking{
 
     public Response performDelete(String endPoint,  Map<String,Object> requestPayload, Token token){

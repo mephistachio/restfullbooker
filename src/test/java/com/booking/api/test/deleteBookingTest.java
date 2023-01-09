@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import static com.constants.Endpoints.BASE_URI;
+import static com.constants.Endpoints.BOOKING_ENDPOINT;
 import static io.restassured.RestAssured.given;
 public class deleteBookingTest {
     private static Token token;
@@ -24,13 +25,12 @@ public class deleteBookingTest {
     Map<String,Object> payload;
     Integer bookingId;
 
-
-
     @BeforeTest
     @Parameters({"scenarioName"})
     public void createBooking(@Optional("deleteBooking") String scenarioName) throws IOException {
-        payload = (Map<String, Object>) booking.buildPayload(scenarioName);
-        Response response = booking.performPost(BASE_URI +"/booking",payload);
+        payload = booking.buildPayload(scenarioName);
+        // Create new booking
+        Response response = booking.performPost(BASE_URI +BOOKING_ENDPOINT,payload);
         Assert.assertEquals(response.getStatusCode(),200,"Expected 200");
         JsonPath jsonPathEvaluator = response.jsonPath();
         bookingId = jsonPathEvaluator.get("bookingid");
@@ -39,12 +39,12 @@ public class deleteBookingTest {
 
     @Test
     public void deleteBooking(){
-        // Delete
-        Response response = booking.performDelete(BASE_URI +"/booking/"+bookingId,payload, token);
-        //
+        // Delete Booking by ID
+        Response response = booking.performDelete(BASE_URI + BOOKING_ENDPOINT + bookingId,payload, token);
+        // Check status Code is correct
         Assert.assertEquals(response.getStatusCode(),201,"Expected 201");
-        //
-        given().when().get(BASE_URI +"/booking/"+bookingId).then().statusCode(404);
+        // Check that booking id is not available
+        given().when().get(BASE_URI + BOOKING_ENDPOINT + bookingId).then().statusCode(404);
 
     }
 }

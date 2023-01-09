@@ -21,8 +21,11 @@ public class CreateBooking extends CsvReader {
 
         List<Booking> inputData = getTestDataRow(testScenario);
         ObjectMapper objectMapper = new ObjectMapper();
+        // Get data from payload file
         Map<String,Object> payload = objectMapper.readValue(new File("src/main/resources/createBookingPayload.json"),
-                new TypeReference<Map<String,Object>>() {});
+                new TypeReference<>() {
+                });
+        // Re-write data
         payload.put("firstname",inputData.get(0).getFirstName());
         payload.put("lastname",inputData.get(0).getLastName());
         payload.put("totalprice",inputData.get(0).getTotalPrice());

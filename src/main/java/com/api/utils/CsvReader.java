@@ -10,7 +10,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class CsvReader {
- //List<String,String>
+    // To read test data from CSV file
     public List<Booking> getTestDataRow(String testScenario) throws FileNotFoundException {
         FileReader file = new FileReader("src/main/resources/bookingTestData.csv");
         List<Booking> csvData = new CsvToBeanBuilder<Booking>(file)
