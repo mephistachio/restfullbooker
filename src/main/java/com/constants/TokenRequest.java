@@ -9,7 +9,16 @@ import static com.constants.Endpoints.BASE_URI;
 import static io.restassured.RestAssured.given;
 
 
+/**
+ * The type Token request.
+ */
 public class TokenRequest {
+    /**
+     * Request token token.
+     *
+     * @param user the user
+     * @return the token
+     */
     public static Token requestToken(User user) {
         return given().contentType(ContentType.JSON)
                 .body(user)

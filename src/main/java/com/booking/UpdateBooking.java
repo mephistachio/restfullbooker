@@ -7,7 +7,18 @@ import io.restassured.response.Response;
 
 import java.util.Map;
 
+/**
+ * The type Update booking.
+ */
 public class UpdateBooking extends CreateBooking{
+    /**
+     * Perform patch response.
+     *
+     * @param endPoint       the end point
+     * @param requestPayload the request payload
+     * @param token          the token
+     * @return the response
+     */
     public Response performPatch(String endPoint, Map<String,Object> requestPayload, Token token){
         try {
             return RestAssured.given().log().all()

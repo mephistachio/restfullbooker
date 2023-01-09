@@ -14,9 +14,21 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import static io.restassured.http.ContentType.*;
 
+
+/**
+ * The type Create booking.
+ */
 public class CreateBooking extends CsvReader {
 
+    /**
+     * Build payload map.
+     *
+     * @param testScenario the test scenario
+     * @return the map
+     * @throws IOException the io exception
+     */
     public Map<String,Object> buildPayload(String testScenario) throws IOException {
 
         List<Booking> inputData = getTestDataRow(testScenario);
@@ -37,6 +49,13 @@ public class CreateBooking extends CsvReader {
         return payload;
     }
 
+    /**
+     * Perform post response.
+     *
+     * @param endPoint       the end point
+     * @param requestPayload the request payload
+     * @return the response
+     */
     public Response performPost(String endPoint, Map<String,Object> requestPayload) {
         try {
             return RestAssured.given().log().all()
@@ -53,11 +72,17 @@ public class CreateBooking extends CsvReader {
         }
     }
 
+    /**
+     * Perform get response.
+     *
+     * @param endPoint the end point
+     * @return the response
+     */
     public Response performGet(String endPoint){
         try {
             return RestAssured.given().log().all()
                     .baseUri(endPoint)
-                    .contentType(ContentType.JSON)
+                    .contentType(JSON)
                     .get()
                     .then().log().all().extract().response();
         }

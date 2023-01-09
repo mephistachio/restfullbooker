@@ -18,7 +18,7 @@ import java.util.Map;
 import static com.constants.Endpoints.BASE_URI;
 import static com.constants.Endpoints.BOOKING_ENDPOINT;
 
-public class partialUpdateBookingTest {
+public class PartialUpdateBookingTest {
 
     private static Token token;
     UpdateBooking booking = new UpdateBooking();
@@ -47,6 +47,7 @@ public class partialUpdateBookingTest {
         Assert.assertEquals(response.getStatusCode(), 200, "Expected 200");
         // Check that new firstname is set
         Assert.assertEquals(response.jsonPath().get("firstname"), "NewFirstName");
+        Assert.assertEquals(response.jsonPath().get("lastname"),payload.get("lastname"),"Lastname didn't changed");
 
     }
 

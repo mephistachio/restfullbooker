@@ -9,8 +9,17 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * The type Csv reader.
+ */
 public class CsvReader {
-    // To read test data from CSV file
+    /**
+     * Gets test data row.
+     *
+     * @param testScenario the test scenario
+     * @return the test data row
+     * @throws FileNotFoundException the file not found exception
+     */
     public List<Booking> getTestDataRow(String testScenario) throws FileNotFoundException {
         FileReader file = new FileReader("src/main/resources/bookingTestData.csv");
         List<Booking> csvData = new CsvToBeanBuilder<Booking>(file)

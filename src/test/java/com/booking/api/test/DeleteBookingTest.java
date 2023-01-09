@@ -18,7 +18,7 @@ import java.util.Map;
 import static com.constants.Endpoints.BASE_URI;
 import static com.constants.Endpoints.BOOKING_ENDPOINT;
 import static io.restassured.RestAssured.given;
-public class deleteBookingTest {
+public class DeleteBookingTest {
     private static Token token;
     DeleteBooking booking = new DeleteBooking();
 

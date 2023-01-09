@@ -3,6 +3,9 @@ package com.constants;
 import com.opencsv.bean.CsvBindByName;
 import lombok.Data;
 
+/**
+ * The type Booking.
+ */
 @Data
 public class Booking {
 

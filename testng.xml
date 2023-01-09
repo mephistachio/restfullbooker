@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression test suite">
+
+    <test name="Restfull Booker Regression test suite1">
+        <classes>
+            <class name="src.test.java.com.booking.api.test.CreateBookingTest.java"></class>
+            <class name="src.test.java.com.booking.api.test.DeleteBookingTest"></class>
+            <class name="src.test.java.com.booking.api.test.PartialUpdateBookingTest"></class>
+
+        </classes>
+    </test>
+</suite>

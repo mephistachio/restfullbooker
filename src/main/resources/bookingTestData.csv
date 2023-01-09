@@ -2,3 +2,4 @@ testScenario;firstName;lastName;totalPrice;paidStatus;checkIn;checkOut;additiona
 createBooking;Breaking;Bad;125;true;2023-04-04;2023-10-10;Breakfast;
 deleteBooking;DeleteTestcase;Testing;125;true;2023-04-04;2023-10-10;Breakfast;
 partialUpdateBooking;UpdateTestcase;Testing;124;true;2023-04-04;2023-10-10;Breakfast;UPDATEDFIRSTNAME
+createBookingNegative;Breaking;Bad;333;false;2023-04-04;2023-10-10;Breakfast;
