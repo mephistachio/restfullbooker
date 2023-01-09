@@ -17,3 +17,6 @@ Followind test-cases are covered:
 - GetBookingIds
 - PartialUpdateBooking
 - DeleteBooking
+
+
+P.S.: There is some hardcoded new parameter for PartialUpdateBooking test - to solve.
