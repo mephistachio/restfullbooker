@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 
 /**
  * The type Csv reader.
+ *
+ * This class is to read the csv template and read values based on the booking class object
  */
 public class CsvReader {
     /**
@@ -20,6 +22,7 @@ public class CsvReader {
      * @return the test data row
      * @throws FileNotFoundException the file not found exception
      */
+
     public List<Booking> getTestDataRow(String testScenario) throws FileNotFoundException {
         FileReader file = new FileReader("src/main/resources/bookingTestData.csv");
         List<Booking> csvData = new CsvToBeanBuilder<Booking>(file)
@@ -27,6 +30,7 @@ public class CsvReader {
                 .withSeparator(';')
                 .build().parse();
 
+        // From the whole csv below lone filters the particular row based on the scenario
         Predicate<Booking> byScenario = filterData -> filterData.getTestScenario().equals(testScenario);
 
         List<Booking> rowData = csvData.stream().filter(byScenario).collect(Collectors.toList());
