@@ -8,9 +8,14 @@ Restful-booker API Test Automation
 2. Start git, inialiaze and run next command in git: ```git clone https://github.com/mephistachio/restfullbooker```
 3. [Install Maven](https://maven.apache.org/install.html) Repository 
 
-#### To run test execute next in command line:
+#### To run tests execute next in command line:
 
 ```mvn clean test```
+
+or
+
+right mouse click on testng.xml in the project and select ```Run '...\testng.xml'```
+
 
 
 Followind test-cases are covered:
