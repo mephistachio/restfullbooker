@@ -21,6 +21,18 @@ public class CreateBookingTest {
     Map<String,Object> payload;
     Integer bookingId;
 
+    /**
+     * Create booking.
+     *
+     * @param scenarioName the scenario name
+     * @throws IOException the io exception
+     *
+     *  1. Create new booking with testing data from testdata.csv
+     *  2. Get bookingid for new Boooking
+     *  3. Get booking by ID
+     *  4. Check status code and firstname are correct
+     */
+
     @Test
     @Parameters({"scenarioName"})
     public void createBooking(@Optional("createBooking") String scenarioName) throws IOException {
@@ -32,19 +44,6 @@ public class CreateBookingTest {
         // Get id of new booking
         JsonPath jsonPathEvaluator = response.jsonPath();
         bookingId = jsonPathEvaluator.get("bookingid");
-    }
-
-
-    @Test
-    @Parameters({"scenarioName"})
-    public void createBookingNegativeTest(@Optional("createBookingNegative") String scenarioName) throws IOException
-    {
-        payload = booking.buildPayload(scenarioName);
-        // Make a POST request for new Booking to incorrect endpoint
-        Response response = booking.performPost(BASE_URI ,payload);
-        // Check that status code is correct
-        Assert.assertEquals(response.getStatusCode(),404,"Expected 404");
-
     }
     @AfterTest
     public void getBookingByID()

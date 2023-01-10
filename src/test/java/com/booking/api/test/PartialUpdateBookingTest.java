@@ -18,6 +18,16 @@ import java.util.Map;
 import static com.constants.Endpoints.BASE_URI;
 import static com.constants.Endpoints.BOOKING_ENDPOINT;
 
+/**
+ * The type Partial update booking test.
+ *
+ *  1. Create new booking with testing data from testdata.csv
+ *  2. Get bookingid for new Boooking
+ *  3. Get the auth token
+ *  4. Perform partial update of Booking
+ *  5. Check Status code and new firstname are correct and lastname is not changed
+ */
+
 public class PartialUpdateBookingTest {
 
     private static Token token;
@@ -50,5 +60,4 @@ public class PartialUpdateBookingTest {
         Assert.assertEquals(response.jsonPath().get("lastname"),payload.get("lastname"),"Lastname didn't changed");
 
     }
-
 }

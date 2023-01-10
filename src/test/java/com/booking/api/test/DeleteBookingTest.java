@@ -18,6 +18,16 @@ import java.util.Map;
 import static com.constants.Endpoints.BASE_URI;
 import static com.constants.Endpoints.BOOKING_ENDPOINT;
 import static io.restassured.RestAssured.given;
+
+
+/**
+ * Delete booking test
+ *
+ * 1. Create new booking with testing data from testdata.csv
+ * 2. Get bookingid for new Boooking
+ * 3. Get the auth token
+ * 4. Send Delete request by bookingid and check after if this bookingid is not exist
+ */
 public class DeleteBookingTest {
     private static Token token;
     DeleteBooking booking = new DeleteBooking();
@@ -31,9 +41,11 @@ public class DeleteBookingTest {
         payload = booking.buildPayload(scenarioName);
         // Create new booking
         Response response = booking.performPost(BASE_URI +BOOKING_ENDPOINT,payload);
+        // Check that status code is correct
         Assert.assertEquals(response.getStatusCode(),200,"Expected 200");
         JsonPath jsonPathEvaluator = response.jsonPath();
         bookingId = jsonPathEvaluator.get("bookingid");
+        // Request token, that necessary for Delete request
         token = TokenRequest.requestToken(new User("admin", "password123"));
     }
 
