@@ -19,4 +19,6 @@ Followind test-cases are covered:
 - DeleteBooking
 
 
-P.S.: There is some hardcoded new parameter for PartialUpdateBooking test - to solve.
+P.S.: 
+- There is some hardcoded new parameter for PartialUpdateBooking test - to solve.
+- The date in post is incorrectly displayed - todo
