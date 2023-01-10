@@ -4,6 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * The type User.
+ *
+ * This class contains parameters for token and token request.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

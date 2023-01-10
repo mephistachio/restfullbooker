@@ -5,6 +5,9 @@ import lombok.Data;
 
 /**
  * The type Booking.
+ *
+ * If any column is added in CSV file, then we have to add that particular parameter in Booking class
+ * And also add getter and setter
  */
 @Data
 public class Booking {

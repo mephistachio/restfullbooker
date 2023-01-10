@@ -18,6 +18,7 @@ public class TokenRequest {
      *
      * @param user the user
      * @return the token
+     * This class used in test classes for API calls for get token with POST request.
      */
     public static Token requestToken(User user) {
         return given().contentType(ContentType.JSON)
