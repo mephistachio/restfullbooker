@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Regression test suite">
+<suite name="Booking API Suite">
 
-    <test name="Restfull Booker Regression test suite1">
+    <test name="CreateBooking">
+    <parameter name="scenarioName" value="createBooking"/>>
         <classes>
-            <class name="src.test.java.com.booking.api.test.CreateBookingTest.java"></class>
-            <class name="src.test.java.com.booking.api.test.DeleteBookingTest"></class>
-            <class name="src.test.java.com.booking.api.test.PartialUpdateBookingTest"></class>
-
+            <class name="com.booking.api.test.CreateBookingTest"></class>
+        </classes>
+    </test>
+    <test name="DeleteBooking">
+        <parameter name="scenarioName" value="deleteBooking"/>>
+        <classes>
+            <class name="com.booking.api.test.DeleteBookingTest"></class>
+        </classes>
+    </test>
+    <test name="NegativeCreateBookingTest">
+        <parameter name="scenarioName" value="createBookingNegative"/>>
+        <classes>
+            <class name="com.booking.api.test.CreateBookingTest"></class>
+        </classes>
+    </test>
+    <test name="PartialUpdateBooking">
+        <parameter name="scenarioName" value="partialUpdateBooking"/>>
+        <classes>
+            <class name="com.booking.api.test.PartialUpdateBookingTest"></class>
         </classes>
     </test>
 </suite>
