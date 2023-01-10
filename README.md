@@ -22,6 +22,7 @@ Followind test-cases are covered:
 - GetBookingIds
 - PartialUpdateBooking
 - DeleteBooking
+- NegativeCreateBooking
 
 
 P.S.: 
